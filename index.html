@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AXP Hours Calculator — Credited Hours by Experience Area (Free)</title>
+<meta name="description" content="Free AXP hours calculator. Enter your hours in each of the six experience areas, apply the 1-year / 75% credit rule, and see exactly how many of the 3,740 hours you still need.">
+<style>
+:root{--bg:#f6f3ec;--card:#fffdf8;--ink:#1e1a16;--muted:#6b6259;--line:#e2dccf;--accent:#7a3b1d;--bar:#d9d2c3;--ok:#2f6b3a}
+@media (prefers-color-scheme:dark){:root{--bg:#161412;--card:#1f1c19;--ink:#efe9df;--muted:#a79d90;--line:#35302a;--accent:#e0955f;--bar:#3a342e;--ok:#7fbf8a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Georgia,"Times New Roman",serif}
+main{max-width:760px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:600}
+.lede{color:var(--muted);margin:0 0 24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+table{width:100%;border-collapse:collapse;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:0 6px 8px}
+td{padding:8px 6px;border-top:1px solid var(--line);vertical-align:middle}
+td.area{font-weight:600}
+td.area small{display:block;font-weight:400;color:var(--muted)}
+input{width:84px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit;text-align:right}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;background:var(--bar);border-radius:3px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.done .bar i{background:var(--ok)}
+.total{display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.total div{flex:1;min-width:140px}
+.total b{display:block;font-size:26px;font-variant-numeric:tabular-nums}
+.total span{color:var(--muted);font-size:13px}
+.cta{margin-top:28px;padding:20px;border-left:3px solid var(--accent);background:var(--card)}
+.cta a{color:var(--accent);font-weight:600}
+h2{font-size:20px;margin:36px 0 8px}
+.fine{color:var(--muted);font-size:13px;margin-top:32px}
+@media (max-width:560px){th.hide,td.hide{display:none}input{width:64px}}
+</style>
+</head>
+<body>
+<main>
+<h1>AXP Hours Calculator</h1>
+<p class="lede">Enter your hours in each experience area. The calculator applies the one-year rule (100% credit for experience up to a year old, 75% after) and shows what's left of the 3,740 hours.</p>
+
+<div class="card">
+<table>
+<thead><tr><th>Experience area</th><th class="num">Under 1 yr old</th><th class="num">Over 1 yr old</th><th class="num">Credited / required</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+<div class="total">
+<div><b id="tCred">0</b><span>credited hours</span></div>
+<div><b id="tLeft">3,740</b><span>hours still needed</span></div>
+<div><b id="tLost">0</b><span>hours lost to late reporting</span></div>
+</div>
+</div>
+
+<div class="cta">
+Want this running all the way to licensure, not just today? <strong>Licensure Ledger</strong> is a spreadsheet (Excel + Google Sheets) that logs every AXP report, flags hours about to age past one year, tracks all six ARE divisions and retakes, and budgets your fees. $12, one time.
+<br><a href="https://licensureledger.gumroad.com/l/are-axp-tracker-spreadsheet?utm_source=calculator&amp;utm_medium=web&amp;utm_campaign=axp-calc">Get Licensure Ledger →</a>
+</div>
+
+<h2>How the one-year rule works</h2>
+<p>NCARB changed AXP reporting on November 18, 2025. Experience reported within one year of when you earned it counts at 100%. Anything older still counts, at 75%, with no age limit. So 100 hours reported late becomes 75 credited hours. The fix is simple: report at least every few months.</p>
+
+<h2>Required hours by area</h2>
+<p>The six areas and their minimums total 3,740 hours. Hours above an area's minimum don't carry over to another area, so the calculator caps each area at its requirement.</p>
+
+<p class="fine">Unofficial planning tool. Not affiliated with or endorsed by NCARB. ARE® and AXP® are NCARB marks. Always confirm your record in My NCARB and the rules at ncarb.org. This page stores nothing; your numbers stay in your browser.</p>
+</main>
+<script>
+const AREAS=[["Practice Management",160],["Project Management",360],["Programming & Analysis",260],["Project Planning & Design",1080],["Project Development & Documentation",1520],["Construction & Evaluation",360]];
+const rows=document.getElementById('rows');
+const fmt=n=>Math.round(n).toLocaleString('en-US');
+AREAS.forEach(([name,req],i)=>{
+  const tr=document.createElement('tr');tr.id='r'+i;
+  tr.innerHTML=`<td class="area">${name.replace('&','&amp;')}<small>${fmt(req)} hrs required</small><div class="bar"><i style="width:0"></i></div></td>
+  <td class="num"><input type="number" min="0" step="1" inputmode="numeric" aria-label="${name} hours under one year old" data-i="${i}" data-k="new"></td>
+  <td class="num"><input type="number" min="0" step="1" inputmode="numeric" aria-label="${name} hours over one year old" data-i="${i}" data-k="old"></td>
+  <td class="num"><span class="c">0</span> / ${fmt(req)}</td>`;
+  rows.appendChild(tr);
+});
+function calc(){
+  let tc=0,tl=0;
+  AREAS.forEach(([n,req],i)=>{
+    const v=k=>Math.max(0,parseFloat(document.querySelector(`input[data-i="${i}"][data-k="${k}"]`).value)||0);
+    const nw=v('new'),od=v('old');
+    const raw=nw+od*0.75;tl+=od*0.25;
+    const cred=Math.min(req,raw);tc+=cred;
+    const tr=document.getElementById('r'+i);
+    tr.querySelector('.c').textContent=fmt(cred);
+    tr.querySelector('.bar i').style.width=(cred/req*100)+'%';
+    tr.classList.toggle('done',cred>=req);
+  });
+  document.getElementById('tCred').textContent=fmt(tc);
+  document.getElementById('tLeft').textContent=fmt(3740-tc);
+  document.getElementById('tLost').textContent=fmt(tl);
+}
+rows.addEventListener('input',calc);calc();
+</script>
+</body>
+</html>
