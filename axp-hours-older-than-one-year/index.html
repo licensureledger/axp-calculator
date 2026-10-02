@@ -61,5 +61,14 @@ h2{font-size:20px;margin:36px 0 8px}
 <p class="fine">Unofficial planning information. Not affiliated with or endorsed by NCARB. ARE® and AXP® are NCARB marks. Rules and fees change; always confirm in My NCARB and at ncarb.org. Checked against ncarb.org on September 30, 2026.</p>
 </main>
 
+<p style="font-size:12px;opacity:.6;margin-top:24px">This page keeps an anonymous count of visits. No cookies, no personal data.</p>
+<script>
+(function(){if(navigator.webdriver)return;var u='https://abacus.jasoncameron.dev/hit/licensureledger/';
+function hit(k){try{if(sessionStorage.getItem('ll-'+k))return;sessionStorage.setItem('ll-'+k,'1')}catch(e){}
+try{fetch(u+k,{mode:'no-cors',keepalive:true})}catch(e){}}
+document.addEventListener('input',function(){hit('used')},{once:true});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="gumroad.com"]');if(a)hit('store')});
+hit('visit')})();
+</script>
 </body>
 </html>
