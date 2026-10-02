@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When can I retake a failed ARE division? | Licensure Ledger</title>
+<meta name="description" content="ARE retake date calculator. A failed division can be retaken 60 days after the attempt, with at most three attempts at a division in any 12 months.">
+<link rel="canonical" href="https://licensureledger.github.io/axp-calculator/are-retake-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When can I retake a failed ARE division?">
+<meta property="og:description" content="ARE retake date calculator. A failed division can be retaken 60 days after the attempt, with at most three attempts at a division in any 12 months.">
+<meta property="og:url" content="https://licensureledger.github.io/axp-calculator/are-retake-calculator/">
+<meta property="og:site_name" content="Licensure Ledger">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How soon can I retake a failed ARE division?", "acceptedAnswer": {"@type": "Answer", "text": "60 days after the failed attempt."}}, {"@type": "Question", "name": "How many times can I take one ARE division in a year?", "acceptedAnswer": {"@type": "Answer", "text": "Up to three attempts at the same division in any 12-month period."}}]}
+</script>
+<style>
+:root{--bg:#f6f3ec;--card:#fffdf8;--ink:#1e1a16;--muted:#6b6259;--line:#e2dccf;--accent:#7a3b1d;--bar:#d9d2c3;--ok:#2f6b3a}
+@media (prefers-color-scheme:dark){:root{--bg:#161412;--card:#1f1c19;--ink:#efe9df;--muted:#a79d90;--line:#35302a;--accent:#e0955f;--bar:#3a342e;--ok:#7fbf8a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Georgia,"Times New Roman",serif}
+main{max-width:760px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:600}
+.lede{color:var(--muted);margin:0 0 24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+table{width:100%;border-collapse:collapse;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:0 6px 8px}
+td{padding:8px 6px;border-top:1px solid var(--line);vertical-align:middle}
+td.area{font-weight:600}
+td.area small{display:block;font-weight:400;color:var(--muted)}
+input{width:84px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit;text-align:right}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{height:6px;background:var(--bar);border-radius:3px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.done .bar i{background:var(--ok)}
+.total{display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.total div{flex:1;min-width:140px}
+.total b{display:block;font-size:26px;font-variant-numeric:tabular-nums}
+.total span{color:var(--muted);font-size:13px}
+.cta{margin-top:28px;padding:20px;border-left:3px solid var(--accent);background:var(--card)}
+.cta a{color:var(--accent);font-weight:600}
+h2{font-size:20px;margin:36px 0 8px}
+.fine{color:var(--muted);font-size:13px;margin-top:32px}
+@media (max-width:560px){th.hide,td.hide{display:none}input{width:64px}}
+</style>
+<style>.crumb{font:13px system-ui,sans-serif;color:var(--muted);margin:0 0 14px}.crumb a{color:var(--accent)}h2{font-size:20px;margin:28px 0 8px}.answer{font-size:19px;line-height:1.5;margin:0 0 18px}table.t{margin:8px 0 18px}table.t td,table.t th{padding:8px 6px}.src{font:13px system-ui,sans-serif;color:var(--muted)}.src a{color:var(--accent)}.more{font:14px system-ui,sans-serif;line-height:1.9}.more a{color:var(--accent)}input[type=date]{display:block;width:100%;max-width:260px;margin:6px 0;font:16px system-ui;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}.out{font:600 22px system-ui,sans-serif;margin:14px 0 4px}</style>
+</head>
+<body>
+<main>
+<p class="crumb"><a href="../">AXP Hours Calculator</a> › When can I retake a failed ARE division?</p>
+<h1>When can I retake a failed ARE division?</h1>
+<p class="answer">60 days after the failed attempt. One more limit applies: you can take the same division at most three times in any 12-month period.</p>
+<div class="card"><p style="margin:0 0 10px;font:14px system-ui,sans-serif;color:var(--muted)">Enter the date of each attempt at this division in the last 12 months (leave unused boxes empty).</p>
+<p><input type="date" id="d1" aria-label="Most recent attempt"> <input type="date" id="d2" aria-label="Earlier attempt"> <input type="date" id="d3" aria-label="Earliest attempt"></p>
+<div class="out" id="out">Enter your most recent attempt date</div><div class="src" id="why"></div></div>
+<h2>How the two rules combine</h2><p>Most candidates only meet the 60-day wait. If you have already taken the same division three times in the past 12 months, you also have to wait until the oldest of those attempts is more than 12 months old. The calculator above shows the later of the two dates.</p>
+<div class="cta">Want the numbers for your own hours? <a href="https://licensureledger.github.io/axp-calculator/?utm_source=site&amp;utm_medium=page&amp;utm_campaign=are-retake-calculator">Open the AXP Hours Calculator →</a><br>Tracking licensure for a whole firm? <a href="https://licensureledger.gumroad.com/l/team-edition?utm_source=site&amp;utm_medium=page&amp;utm_campaign=are-retake-calculator">See the Team Edition →</a></div>
+<p class="src">Sources: <a href="https://www.ncarb.org/how-soon-can-i-retake-failed-division" rel="noopener">NCARB: How soon can I retake a failed division?</a></p>
+<h2>More answers</h2>
+<p class="more"><a href="../axp-hours-older-than-one-year/">What happens to AXP hours older than one year?</a><br><a href="../axp-hours-required/">How many AXP hours do I need in each experience area?</a><br><a href="../do-are-divisions-expire/">Do my passed ARE divisions expire?</a><br><a href="../are-exam-fees/">How much does the ARE cost, and what do rescheduling and cancelling cost?</a><br></p>
+<p class="fine">Unofficial planning information. Not affiliated with or endorsed by NCARB. ARE® and AXP® are NCARB marks. Rules and fees change; always confirm in My NCARB and at ncarb.org. Checked against ncarb.org on September 30, 2026.</p>
+</main>
+<script>
+const f=d=>d.toLocaleDateString('en-US',{weekday:'short',year:'numeric',month:'long',day:'numeric'});
+function calc(){const ds=['d1','d2','d3'].map(i=>document.getElementById(i).value).filter(Boolean).map(v=>new Date(v+'T12:00:00')).sort((a,b)=>b-a);
+ const out=document.getElementById('out'),why=document.getElementById('why'); if(!ds.length){out.textContent='Enter your most recent attempt date';why.textContent='';return;}
+ const wait=new Date(ds[0]);wait.setDate(wait.getDate()+60); let best=wait,reason='60 days after your most recent attempt.';
+ if(ds.length>=3){const yr=new Date(ds[0]);yr.setFullYear(yr.getFullYear()-1); if(ds[2]>yr){const cap=new Date(ds[2]);cap.setFullYear(cap.getFullYear()+1); if(cap>best){best=cap;reason='You have three attempts inside 12 months, so the earliest date is when your oldest of the three attempts is 12 months old.';}}}
+ out.textContent='Earliest retake: '+f(best);why.textContent=reason+' Seat availability is separate; check My NCARB before booking.';}
+['d1','d2','d3'].forEach(i=>document.getElementById(i).addEventListener('input',calc));
+</script>
+</body>
+</html>
